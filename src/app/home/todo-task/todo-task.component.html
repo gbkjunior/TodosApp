@@ -1,0 +1,31 @@
+
+
+<div class="input-group">
+    <h3> Todos </h3>
+    <button class="btn btn-primary pull-right" (click)="clickAdd()">
+            +Add
+    </button>
+    <div class="add-task" *ngIf="!clicked">
+        <input class="form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoTask.title" (keyup.enter)="addTodoTask()">
+    </div>
+
+</div> 
+<section class="main" *ngIf="todoList?.length > 0">
+  <li class="list-group-item" *ngFor="let task of todoList" [class.completed]="task.done" >
+    <span class="checkDone"   (click)="checkTodoTaskDone(task)" [class.text-info]="task.done">
+        <i class="fa fa-lg" [ngClass]="task.done?'fa fa-check-square-o': 'fa fa-square-o'"></i>
+       </span> 
+    <label >{{task.title}}</label>
+    <button class="btn btn-primary pull-right" (click)="updateTodoTask(task)">
+            <i  class="fa fa-pencil"></i>
+    </button>
+    <button class="hover-cursor pull-right" (click)="deleteTodoTask(task)">
+        <i  class="fa fa-trash"></i>
+    </button>
+  </li>
+  </section>
+
+
+  <!--footer class="footer" *ngIf="todoListArray?.length > 0">
+      <span class="todo-count"><strong>{{todoListArray.length}}</strong> {{todoListArray.length == 1 ? 'item' : 'items'}} left</span>
+    </footer-->
