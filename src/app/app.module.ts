@@ -10,6 +10,7 @@ import { TodoTaskComponent } from './home/todo-task/todo-task.component';
 import { TaskHeaderComponent } from './header/task-header/task-header.component';
 import { TaskDataService } from "./service/task-data.service";
 import { ITaskService } from "./service/Itask.service";
+import { AddTaskComponent } from './home/add-task/add-task.component';
 
 
 //import { ITaskServices } from "./service/Itask.service";
@@ -17,7 +18,7 @@ const API_URL = environment.apiUrl;
 
 @NgModule({
   imports:      [ BrowserModule,HttpModule, HttpClientModule, FormsModule, ReactiveFormsModule ],
-  declarations: [ HomeComponent, HeaderComponent, TodoTaskComponent, TaskHeaderComponent ],
+  declarations: [ HomeComponent, HeaderComponent, TodoTaskComponent, TaskHeaderComponent, AddTaskComponent ],
   providers: [TaskDataService, ITaskService],
   bootstrap:    [ HomeComponent ]
 })

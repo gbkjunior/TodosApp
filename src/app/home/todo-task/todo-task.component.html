@@ -5,26 +5,27 @@
     <button class="btn btn-primary pull-right" (click)="clickAdd()">
             +Add
     </button>
+</div>    
     <div class="add-task" *ngIf="clicked">
         <input class="form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoTask.title" ng-required>
         <input class="form-control" placeholder="please explain" autofocus="" [(ngModel)]="newTodoTask.description" >
         <input class="form-control" placeholder="complete by" autofocus="" [(ngModel)]="newTodoTask.due" >
         <button class="btn" (click)="addTodoTask()"> Ok </button>
+        <button class="btn" (click)="clickCancel()"> Cancel </button>
     </div>
     <div class="edit-task" *ngIf="clickedEdit">
             <input class="form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoTask.title" ng-required>
             <input class="form-control" placeholder="please explain" autofocus="" [(ngModel)]="newTodoTask.description" >
             <input class="form-control" placeholder="complete by" autofocus="" [(ngModel)]="newTodoTask.due" >
             <button class="btn" (click)="updateTaskById(newTodoTask)"> Ok </button>
-        </div>
-</div> 
+    </div> 
 <section class="main" *ngIf="todoList?.length > 0">
   <li class="list-group-item" *ngFor="let task of todoList" [class.completed]="task.done" >
     <span class="checkDone"   (click)="checkTodoTaskDone(task)" [class.text-info]="task.done">
         <i class="fa fa-lg" [ngClass]="task.done?'fa fa-check-square-o': 'fa fa-square-o'"></i>
        </span> 
-    <a href="#" editable-text="task.title" >{{task.title || 'empty'}}</a>
-    <button class="btn pull-right" (click)="updateTodoTask(task)">
+    <label>{{task.title }}</label>
+    <button class="hover-cursor pull-right" (click)="updateTodoTask(task)">
             <i  class="fa fa-pencil"></i>
     </button>
     <button class="hover-cursor pull-right" (click)="deleteTodoTask(task)">

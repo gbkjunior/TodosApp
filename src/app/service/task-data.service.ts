@@ -58,6 +58,7 @@ export class TaskDataService {
     Object.assign(todoTask,taskValues);
     return todoTask;
     */
+   console.log(this.itaskService.Update(id,taskValues));
    return this.itaskService.Update(id,taskValues);
   }
 

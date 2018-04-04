@@ -1,45 +1,38 @@
 {
   "tasks": [
     {
-      "title": "Chistmas part33",
+      "title": "Chistmas part1",
       "description": "Go to friends",
       "due": "12/25/2017",
       "done": false,
       "id": 3
     },
     {
-      "title": "sss",
-      "description": "",
-      "due": "",
-      "done": true,
-      "id": 6
-    },
-    {
       "title": "Can you see",
       "description": "",
       "due": "",
-      "done": true,
+      "done": false,
       "id": 8
     },
     {
       "title": "ttt",
       "description": "",
       "due": "",
-      "done": false,
+      "done": true,
       "id": 10
     },
     {
       "title": "hello",
       "description": "finish",
       "due": "02/22/2019",
-      "done": false,
+      "done": true,
       "id": 11
     },
     {
       "title": "thinix challenge",
       "description": "finish edit task by tomorrow",
       "due": "04/04/2018",
-      "done": false,
+      "done": true,
       "id": 12
     }
   ]

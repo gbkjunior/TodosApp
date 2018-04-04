@@ -52,13 +52,14 @@ export class TodoTaskComponent implements OnInit  {
           this.todoList = this.todoList.concat(newTodo)
         }
       );
+      this.clicked = false;
     }
     else {
       alert("Please enter task title");
     }
     console.log('running addtodotask');
     this.newTodoTask = new Tasks();
-    this.clicked = false;
+    
   }
 
   checkTodoTaskDone(todoTask) {
@@ -84,6 +85,11 @@ export class TodoTaskComponent implements OnInit  {
     this.clicked = true;
   }
 
+  clickCancel()
+  {
+    this.clicked = false;
+  }
+
   deleteTodoTask(todoTask)
   {
     console.log('inside delete to do');
@@ -106,6 +112,7 @@ export class TodoTaskComponent implements OnInit  {
     this.todoTaskService.updateTodoTaskById(todoTask.id, todoTask).subscribe(
       (updateTodo) => {
         this.newTodoTask = updateTodo;
+        
       }
     );
     this.ngOnInit();

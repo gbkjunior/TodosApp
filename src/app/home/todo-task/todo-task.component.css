@@ -25,6 +25,16 @@ li.list-group-item.completed label {
     
 }
 
+.add-task {
+    padding: 25px;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}
+
+.add-task .btn{
+    margin-left: 10%;
+}
 li.list-group-item {
     overflow: auto;
     width: 50%;
@@ -63,4 +73,22 @@ label {
 
 .form-control {
     margin-bottom: 10px; 
+}
+
+.btn {
+    margin-left: 30%;
+}
+
+.main li.list-group-item .hover-cursor {
+    margin-left: 5%;
+}
+
+.edit-task {
+    padding: 25px;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}
+h3 {
+    margin-left: 40%;
 }
