@@ -73,7 +73,7 @@ export class ITaskService implements ITaskService {
     }
 
 
-    Get(id: number): Promise<Task> | Observable<Task> {
+    Get(id: number): Observable<Task> {
         return this.http
         .get(API_URL + '/tasks/' + id)
         .map(response => {

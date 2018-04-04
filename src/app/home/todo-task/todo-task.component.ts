@@ -22,6 +22,7 @@ export class TodoTaskComponent implements OnInit  {
   public newTodoTask: Tasks = new Tasks();
   todoList : Tasks[];
   clicked: boolean=false;
+  clickedEdit : boolean=false;
 
   constructor(@Inject(TaskDataService) private todoTaskService : TaskDataService) { }
 
@@ -45,13 +46,19 @@ export class TodoTaskComponent implements OnInit  {
   addTodoTask()
   {
     console.log(this.newTodoTask);
-    this.todoTaskService.addTodoTaskItem(this.newTodoTask).subscribe(
-      (newTodo) => {
-        this.todoList = this.todoList.concat(newTodo)
-      }
-    );
+    if(this.newTodoTask.title!="" && this.newTodoTask.title.trim()!="") {
+      this.todoTaskService.addTodoTaskItem(this.newTodoTask).subscribe(
+        (newTodo) => {
+          this.todoList = this.todoList.concat(newTodo)
+        }
+      );
+    }
+    else {
+      alert("Please enter task title");
+    }
     console.log('running addtodotask');
     this.newTodoTask = new Tasks();
+    this.clicked = false;
   }
 
   checkTodoTaskDone(todoTask) {
@@ -64,7 +71,13 @@ export class TodoTaskComponent implements OnInit  {
   }
 
   updateTodoTask(todoTask) {
-
+    this.clickedEdit = true;
+    console.log('inside update todo' +   todoTask.id);
+    this.todoTaskService.getTodoTaskById(todoTask.id).subscribe(
+      (getTodo) => {
+        this.newTodoTask = getTodo;
+      }
+    );
   }
   clickAdd()
   {
@@ -87,9 +100,16 @@ export class TodoTaskComponent implements OnInit  {
     return this.todoTaskService.getAllTodoTasks();
   }
   
-
+  updateTaskById(todoTask)
+  {
+    console.log('update to do task' + todoTask.id);
+    this.todoTaskService.updateTodoTaskById(todoTask.id, todoTask).subscribe(
+      (updateTodo) => {
+        this.newTodoTask = updateTodo;
+      }
+    );
+    this.ngOnInit();
+    this.clickedEdit = false;
+  }
 }
 
-console.log(this.newTodoTask);
-console.log(ins);
-console.log(this.getAllTodos);

@@ -1,7 +1,7 @@
 {
   "tasks": [
     {
-      "title": "Chistmas party",
+      "title": "Chistmas part33",
       "description": "Go to friends",
       "due": "12/25/2017",
       "done": false,
@@ -18,8 +18,29 @@
       "title": "Can you see",
       "description": "",
       "due": "",
-      "done": false,
+      "done": true,
       "id": 8
+    },
+    {
+      "title": "ttt",
+      "description": "",
+      "due": "",
+      "done": false,
+      "id": 10
+    },
+    {
+      "title": "hello",
+      "description": "finish",
+      "due": "02/22/2019",
+      "done": false,
+      "id": 11
+    },
+    {
+      "title": "thinix challenge",
+      "description": "finish edit task by tomorrow",
+      "due": "04/04/2018",
+      "done": false,
+      "id": 12
     }
   ]
 }

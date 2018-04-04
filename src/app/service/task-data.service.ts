@@ -43,7 +43,7 @@ export class TaskDataService {
     return this.itaskService.GetAll();
   }
 
-  getTodoTaskById(id: number): Promise<Task> | Observable<Task> {
+  getTodoTaskById(id: number): Observable<Task> {
     //return this.itaskArray.filter(task => task.id === id).pop();
     return this.itaskService.Get(id);
   }
