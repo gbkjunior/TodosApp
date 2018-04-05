@@ -1,6 +1,4 @@
-.jumbotron {
-    background-color: beige;
-}
+
 
 .input-group {
     padding: 25px;
@@ -12,6 +10,7 @@
 .input-group h3 {
     color: #374041;
 }
+
 li.hover-cursor {
     cursor: pointer;
     margin: 2px;
@@ -57,13 +56,7 @@ label {
 }
 
 
-.footer {
-	color: #17a2b8;
-	padding: 10px 15px;
-	height: 20px;
-	text-align: center;
-	border-top: 1px solid #e6e6e6;
-}
+
 
  ::placeholder {
     color:#3e4548ed ;
@@ -118,11 +111,7 @@ li.list-group-item label {
     display: inline-block;
 }
 
-.fa:hover,
-.fa:active,
-.fa:focus {
-    text-shadow: #17a2b8;
-}
+
 
 .fa {
     

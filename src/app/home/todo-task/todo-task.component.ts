@@ -120,7 +120,7 @@ export class TodoTaskComponent implements OnInit  {
 
   deleteTodoTask(todoTask)
   {
-    console.log('inside delete to do');
+    
     this.todoTaskService.deleteTodoTaskById(todoTask.id).subscribe(
       _ => {
         this.todoList = this.todoList.filter((t) => t.id!==todoTask.id);
