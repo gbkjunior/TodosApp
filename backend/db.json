@@ -1,25 +1,39 @@
 {
   "tasks": [
     {
-      "title": "Chistmas party over",
+      "title": "Chistmas party",
       "description": "Go to friends",
-      "due": "2018-04-06",
-      "done": false,
+      "due": "04/07/2018",
+      "done": true,
       "id": 3
     },
     {
       "title": "Thinix challenge",
       "description": "finish edit task by tomorrow",
-      "due": "2018-04-06",
+      "due": "04/17/2018",
       "done": false,
       "id": 12
     },
     {
       "title": "Hello",
       "description": "Testing app",
-      "due": "2018-04-06",
+      "due": "04/04/2018",
       "done": true,
       "id": 14
+    },
+    {
+      "title": "Test Date",
+      "description": "Checking Functionalities",
+      "due": "04/15/2018",
+      "done": false,
+      "id": 15
+    },
+    {
+      "title": "Overall workflow check",
+      "description": "",
+      "due": "04/01/2018",
+      "done": true,
+      "id": 17
     }
   ]
 }

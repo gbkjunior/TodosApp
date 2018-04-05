@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Tasks} from '../../models/taskClass';
+import {Task} from '../../models/task';
+
+
+var ins = {} as Task;
 
 @Component({
   selector: 'app-add-task',
@@ -8,7 +12,7 @@ import {Tasks} from '../../models/taskClass';
 })
 export class AddTaskComponent implements OnInit {
 
-  newTodoTask : Tasks = new Tasks();
+  newTodoTask : Tasks = new Tasks(ins);
   constructor() { }
 
   ngOnInit() {

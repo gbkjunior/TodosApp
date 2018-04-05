@@ -12,7 +12,8 @@
             Title must start with an alphabet
         </div>
         <input class="form-control" placeholder="please explain" autofocus="" [(ngModel)]="newTodoTask.description" >
-        <input  type="date" class="form-control" placeholder="complete by" autofocus="" [(ngModel)]="newTodoTask.due"    ng-required="true">
+        <input  type="date" name="complete" class="form-control" placeholder="complete by" autofocus="" [ngModel]="complete | date:'MM/dd/yyyy'" (ngModelChange)="newTodoTask.due = $event  "     
+        date-model>
         <span class="btn" (click)="addTodoTask()"> 
             <i class="fa fa-check"></i>
         </span>
