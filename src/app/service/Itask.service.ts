@@ -102,9 +102,11 @@ export class ITaskService implements ITaskService {
         return this.http
         .put(API_URL + '/tasks/' + id, task)
         .map(response => {
+            console.log(response.json());
           return new Tasks(response.json());
         })
         .catch(this.handleError)
+        
     }
 
 

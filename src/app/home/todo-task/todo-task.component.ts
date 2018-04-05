@@ -77,6 +77,7 @@ export class TodoTaskComponent implements OnInit  {
     this.todoTaskService.getTodoTaskById(todoTask.id).subscribe(
       (getTodo) => {
         this.newTodoTask = getTodo;
+
       }
     );
   }
@@ -108,14 +109,31 @@ export class TodoTaskComponent implements OnInit  {
   
   updateTaskById(todoTask)
   {
+    this.todoTaskService.getTodoTaskById(todoTask.id).subscribe(
+      (getTodo) => {
+       var index = this.todoList.findIndex(
+         x => x.id == getTodo.id
+       )
+       this.todoList[index].title = getTodo.title;
+       this.todoList[index].description = getTodo.description;
+       this.todoList[index].due = getTodo.due;
+       console.log(this.todoList[index]);
+      }
+    );
     console.log('update to do task' + todoTask.id);
     this.todoTaskService.updateTodoTaskById(todoTask.id, todoTask).subscribe(
       (updateTodo) => {
         this.newTodoTask = updateTodo;
-        
+        var index = this.todoList.findIndex(
+          x => x.id == updateTodo.id
+        )
+        this.todoList[index].title = updateTodo.title;
+        this.todoList[index].description = updateTodo.description;
+        this.todoList[index].due = updateTodo.due;
+           
       }
     );
-    this.ngOnInit();
+    this.getAllTodos;
     this.clickedEdit = false;
   }
 }
