@@ -9,6 +9,9 @@
     width: 50%;
 }
 
+.input-group h3 {
+    color: #374041;
+}
 li.hover-cursor {
     cursor: pointer;
     margin: 2px;
@@ -33,17 +36,17 @@ li.list-group-item.completed label {
 }
 
 .add-task .btn{
-    margin-left: 10%;
+    margin-left: 30%;
 }
 li.list-group-item {
     overflow: auto;
     width: 50%;
     margin-left: 25%;
-    
+    margin-bottom: 5px;
 }
 
 label {
-    color:#233cac;
+    color:#3e4548ed;
     margin-left: 10px;
 }
 .text-center {
@@ -63,12 +66,12 @@ label {
 }
 
  ::placeholder {
-    color:#17a2b8;
+    color:#3e4548ed ;
 
 }
 
 ::text {
-    color: #17a2b8;
+    color: #3e4548ed;
 }
 
 .form-control {
@@ -80,6 +83,7 @@ label {
 }
 
 .main li.list-group-item .hover-cursor {
+    cursor: pointer;
     margin-left: 5%;
 }
 
@@ -91,4 +95,42 @@ label {
 }
 h3 {
     margin-left: 40%;
+}
+
+li.list-group-item .displayTitle {
+    font-weight: bold;
+}
+
+li.list-group-item .description {
+    font-weight: lighter;
+    padding-left: inherit;
+    font-style: italic;
+}
+
+li.list-group-item .due {
+    font-weight: lighter;
+    padding-left: 35%;
+    font-size: .8em;
+
+}
+
+li.list-group-item label {
+    display: inline-block;
+}
+
+.fa:hover,
+.fa:active,
+.fa:focus {
+    text-shadow: #17a2b8;
+}
+
+.fa {
+    
+    color: black;
+    
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+    
+    cursor:pointer;
 }

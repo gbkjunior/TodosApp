@@ -11,7 +11,7 @@ import { TaskHeaderComponent } from './header/task-header/task-header.component'
 import { TaskDataService } from "./service/task-data.service";
 import { ITaskService } from "./service/Itask.service";
 import { AddTaskComponent } from './home/add-task/add-task.component';
-
+import {DatePipe} from '@angular/common';
 
 //import { ITaskServices } from "./service/Itask.service";
 const API_URL = environment.apiUrl;

@@ -1,39 +1,25 @@
 {
   "tasks": [
     {
-      "title": "Chistmas party",
+      "title": "Chistmas party over",
       "description": "Go to friends",
-      "due": "12/25/2017",
+      "due": "2018-04-06",
       "done": false,
       "id": 3
     },
     {
-      "title": "Can you see me there",
-      "description": "hello",
-      "due": "",
-      "done": false,
-      "id": 8
-    },
-    {
-      "title": "ttt4",
-      "description": "",
-      "due": "",
-      "done": false,
-      "id": 10
-    },
-    {
-      "title": "hello",
-      "description": "finish",
-      "due": "02/22/2019",
-      "done": false,
-      "id": 11
-    },
-    {
-      "title": "thinix challenge",
+      "title": "Thinix challenge",
       "description": "finish edit task by tomorrow",
-      "due": "04/04/2018",
-      "done": true,
+      "due": "2018-04-06",
+      "done": false,
       "id": 12
+    },
+    {
+      "title": "Hello",
+      "description": "Testing app",
+      "due": "2018-04-06",
+      "done": true,
+      "id": 14
     }
   ]
 }

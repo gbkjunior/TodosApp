@@ -2,35 +2,54 @@
 
 <div class="input-group">
     <h3> Todos </h3>
-    <button class="btn btn-primary pull-right" (click)="clickAdd()">
-            +Add
-    </button>
+    <span class="btn pull-right" (click)="clickAdd()">
+        <i class="fa fa-2x fa-plus-circle "></i>
+    </span>
 </div>    
-    <div class="add-task" *ngIf="clicked">
-        <input class="form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoTask.title" ng-required>
+    <div class="add-task" *ngIf="clicked ">
+        <input class="form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoTask.title" ng-required="true">
+        <div *ngIf="isNumeric(newTodoTask.title)" class="alert alert-danger">
+            Title must start with an alphabet
+        </div>
         <input class="form-control" placeholder="please explain" autofocus="" [(ngModel)]="newTodoTask.description" >
-        <input class="form-control" placeholder="complete by" autofocus="" [(ngModel)]="newTodoTask.due" >
-        <button class="btn" (click)="addTodoTask()"> Create Task </button>
-        <button class="btn" (click)="clickCancel()"> Cancel </button>
+        <input  type="date" class="form-control" placeholder="complete by" autofocus="" [(ngModel)]="newTodoTask.due"    ng-required="true">
+        <span class="btn" (click)="addTodoTask()"> 
+            <i class="fa fa-check"></i>
+        </span>
+
+        <span class="btn" (click)="clickCancel()">  
+                <i class="fa fa-times"></i>
+        </span>
     </div>
     <div class="edit-task" *ngIf="clickedEdit">
             <input class="form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoTask.title" ng-required>
             <input class="form-control" placeholder="please explain" autofocus="" [(ngModel)]="newTodoTask.description" >
-            <input class="form-control" placeholder="complete by" autofocus="" [(ngModel)]="newTodoTask.due" >
-            <button class="btn" (click)="updateTaskById(newTodoTask)"> Update Task </button>
+            <input  type="date" class="form-control" placeholder="complete by" autofocus="" [(ngModel)]="newTodoTask.due " >
+            <span class="btn" (click)="updateTaskById(newTodoTask)"> 
+                <i class="fa fa-thumbs-up"></i>    
+            </span>
+            <span class="btn" (click)="clickCancelUpdate()"> 
+                    <i class="fa fa-thumbs-down"></i>    
+            </span>
     </div> 
 <section class="main" *ngIf="todoList?.length > 0">
   <li class="list-group-item" *ngFor="let task of todoList" [class.completed]="task.done" >
     <span class="checkDone"   (click)="checkTodoTaskDone(task)" [class.text-info]="task.done">
-        <i class="fa fa-lg" [ngClass]="task.done?'fa fa-check-square-o': 'fa fa-square-o'"></i>
+        <i class="fa fa-lg" [ngClass]="task.done?'fa fa-check-circle-o': 'fa fa-circle-o'"></i>
        </span> 
-    <label>{{task.title }}</label>
-    <button class="hover-cursor pull-right" (click)="updateTodoTask(task)">
-            <i  class="fa fa-pencil"></i>
-    </button>
-    <button class="hover-cursor pull-right" (click)="deleteTodoTask(task)">
+      
+    <label class="displayTitle"> {{task.title }}</label>
+    <span class="hover-cursor pull-right" (click)="updateTodoTask(task)">
+        <i  class="fa fa-pencil"></i>
+    </span>
+    <span class="hover-cursor pull-right" (click)="deleteTodoTask(task)">
         <i  class="fa fa-trash"></i>
-    </button>
+    </span>
+    <br>
+    <label class="description" *ngIf="task.description.length > 0 "> {{task.description}}</label> <br>
+    <label class="due" *ngIf="task.due.length > 0"> Complete By: {{task.due | date: 'MM/dd/yyyy'}}</label>
+
+
   </li>
   </section>
 

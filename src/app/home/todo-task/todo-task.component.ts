@@ -46,18 +46,21 @@ export class TodoTaskComponent implements OnInit  {
   addTodoTask()
   {
     console.log(this.newTodoTask);
-    if(this.newTodoTask.title!="" && this.newTodoTask.title.trim()!="") {
+    if(this.newTodoTask.title!="" && this.newTodoTask.title.trim()!="" && !parseInt(this.newTodoTask.title)) {
       this.todoTaskService.addTodoTaskItem(this.newTodoTask).subscribe(
         (newTodo) => {
           this.todoList = this.todoList.concat(newTodo)
         }
       );
+      
       this.clicked = false;
+      alert("Task created successfully");
     }
     else {
       alert("Please enter task title");
     }
     console.log('running addtodotask');
+    
     this.newTodoTask = new Tasks();
     
   }
@@ -67,12 +70,24 @@ export class TodoTaskComponent implements OnInit  {
     this.todoTaskService.checkTodoTaskComplete(todoTask).subscribe(
       (updatedTodo) => {
         todoTask = updatedTodo;
+      
+         
       }
+     
     );
+    if(todoTask.done == "false") {
+      alert("Task not complete")
+    }
+    else
+    if(todoTask.done == "true"){
+      alert("task complete");
+    }
   }
+  
 
   updateTodoTask(todoTask) {
     this.clickedEdit = true;
+    this.clicked = false;
     console.log('inside update todo' +   todoTask.id);
     this.todoTaskService.getTodoTaskById(todoTask.id).subscribe(
       (getTodo) => {
@@ -84,11 +99,20 @@ export class TodoTaskComponent implements OnInit  {
   clickAdd()
   {
     this.clicked = true;
+    this.newTodoTask = new Tasks();
+    this.clickedEdit = false;
   }
 
   clickCancel()
   {
     this.clicked = false;
+  }
+
+  clickCancelUpdate()
+  {
+    this.clickedEdit = false;
+    this.newTodoTask = new Tasks();
+    alert('Cancel Update');
   }
 
   deleteTodoTask(todoTask)
@@ -97,8 +121,10 @@ export class TodoTaskComponent implements OnInit  {
     this.todoTaskService.deleteTodoTaskById(todoTask.id).subscribe(
       _ => {
         this.todoList = this.todoList.filter((t) => t.id!==todoTask.id);
+        
       }
     );
+    alert("Deleted Task Successful");
   }
 
   get getAllTodos()
@@ -109,6 +135,7 @@ export class TodoTaskComponent implements OnInit  {
   
   updateTaskById(todoTask)
   {
+    /*
     this.todoTaskService.getTodoTaskById(todoTask.id).subscribe(
       (getTodo) => {
        var index = this.todoList.findIndex(
@@ -119,7 +146,9 @@ export class TodoTaskComponent implements OnInit  {
        this.todoList[index].due = getTodo.due;
        console.log(this.todoList[index]);
       }
+      
     );
+    */
     console.log('update to do task' + todoTask.id);
     this.todoTaskService.updateTodoTaskById(todoTask.id, todoTask).subscribe(
       (updateTodo) => {
@@ -133,8 +162,12 @@ export class TodoTaskComponent implements OnInit  {
            
       }
     );
-    this.getAllTodos;
+    
     this.clickedEdit = false;
+    alert('Task update Successful');
+  }
+  isNumeric(text : string) {
+    return parseInt(text);
   }
 }
 
